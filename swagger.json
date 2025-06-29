@@ -5,13 +5,17 @@
     "version": "1.0.0",
     "description": ""
   },
-  "host": "localhost:3000",
+  "host": "https://cse341-project-2-w7d5.onrender.com",
   "basePath": "/",
-  "schemes": ["http"],
+  "schemes": [
+    "https"
+  ],
   "paths": {
     "/recipes/": {
       "get": {
-        "tags": ["Recipes"],
+        "tags": [
+          "Recipes"
+        ],
         "description": "",
         "responses": {
           "200": {
@@ -23,7 +27,9 @@
         }
       },
       "post": {
-        "tags": ["Recipes"],
+        "tags": [
+          "Recipes"
+        ],
         "description": "Add a new recipe",
         "parameters": [
           {
@@ -69,7 +75,11 @@
                 },
                 "ingredients": {
                   "type": "array",
-                  "example": ["400 g dulce de leche", "350 ml whole milk", "200 ml heavy cream"],
+                  "example": [
+                    "400 g dulce de leche",
+                    "350 ml whole milk",
+                    "200 ml heavy cream"
+                  ],
                   "items": {
                     "type": "string"
                   }
@@ -130,7 +140,10 @@
                   }
                 }
               },
-              "required": ["imgUrl", "name"]
+              "required": [
+                "imgUrl",
+                "name"
+              ]
             }
           }
         ],
@@ -149,7 +162,9 @@
     },
     "/recipes/{id}": {
       "get": {
-        "tags": ["Recipes"],
+        "tags": [
+          "Recipes"
+        ],
         "description": "",
         "parameters": [
           {
@@ -175,7 +190,9 @@
         }
       },
       "put": {
-        "tags": ["Recipes"],
+        "tags": [
+          "Recipes"
+        ],
         "description": "",
         "parameters": [
           {
@@ -213,7 +230,9 @@
         }
       },
       "delete": {
-        "tags": ["Recipes"],
+        "tags": [
+          "Recipes"
+        ],
         "description": "",
         "parameters": [
           {
@@ -241,7 +260,9 @@
     },
     "/authors/": {
       "get": {
-        "tags": ["Authors"],
+        "tags": [
+          "Authors"
+        ],
         "description": "",
         "responses": {
           "200": {
@@ -253,7 +274,9 @@
         }
       },
       "post": {
-        "tags": ["Authors"],
+        "tags": [
+          "Authors"
+        ],
         "description": "",
         "parameters": [
           {
@@ -280,7 +303,9 @@
                   "example": ""
                 }
               },
-              "required": ["name"]
+              "required": [
+                "name"
+              ]
             }
           }
         ],
@@ -299,7 +324,9 @@
     },
     "/authors/{id}": {
       "delete": {
-        "tags": ["Authors"],
+        "tags": [
+          "Authors"
+        ],
         "description": "",
         "parameters": [
           {
@@ -327,7 +354,9 @@
     },
     "/signup/": {
       "post": {
-        "tags": ["Management System"],
+        "tags": [
+          "Management System"
+        ],
         "description": "",
         "parameters": [
           {
@@ -346,7 +375,10 @@
                   "example": "Password_123456"
                 }
               },
-              "required": ["email", "name"]
+              "required": [
+                "email",
+                "name"
+              ]
             }
           }
         ],
@@ -368,7 +400,9 @@
     },
     "/login/": {
       "post": {
-        "tags": ["Management System"],
+        "tags": [
+          "Management System"
+        ],
         "description": "",
         "parameters": [
           {
@@ -387,7 +421,10 @@
                   "example": "Password_123456"
                 }
               },
-              "required": ["email", "name"]
+              "required": [
+                "email",
+                "name"
+              ]
             }
           }
         ],
