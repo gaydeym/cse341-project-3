@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "description": ""
   },
-  "host": "cse341-project-2-w7d5.onrender.com",
+  "host": "cse341-project-3.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
@@ -370,14 +370,14 @@
                   "type": "string",
                   "example": "example@example.com"
                 },
-                "name": {
+                "password": {
                   "type": "string",
                   "example": "Password_123456"
                 }
               },
               "required": [
                 "email",
-                "name"
+                "password"
               ]
             }
           }
@@ -416,14 +416,14 @@
                   "type": "string",
                   "example": "email@example.com"
                 },
-                "name": {
+                "password": {
                   "type": "string",
                   "example": "Password_123456"
                 }
               },
               "required": [
                 "email",
-                "name"
+                "password"
               ]
             }
           }

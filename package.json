@@ -25,6 +25,7 @@
   "homepage": "https://github.com/gaydeym/cse341-project-3#readme",
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
     "cookie-parser": "^1.4.7",
     "dotenv": "^17.0.0",
     "eslint": "^9.30.0",

@@ -7,7 +7,7 @@ const doc = {
   },
   // host: 'localhost:3000',
   // schemes: ['http']
-  host: 'cse341-project-2-w7d5.onrender.com',
+  host: 'cse341-project-3.onrender.com',
   schemes: ['https']
   // tags: [
   //   {

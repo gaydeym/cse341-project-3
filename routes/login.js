@@ -10,7 +10,7 @@ router.post(
       required: true,
       schema: {
         $email: 'email@example.com',
-        $name: 'Password_123456',
+        $password: 'Password_123456',
       }
     }
   */
