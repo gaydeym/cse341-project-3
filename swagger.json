@@ -1,0 +1,408 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Recipes API",
+    "version": "1.0.0",
+    "description": ""
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": ["http"],
+  "paths": {
+    "/recipes/": {
+      "get": {
+        "tags": ["Recipes"],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Recipes"],
+        "description": "Add a new recipe",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Recipe object",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "imgUrl": {
+                  "type": "string",
+                  "example": "https://i.blogs.es/887e09/1366_2000-7/1366_2000.jpg"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Dulce de Leche Ice Cream"
+                },
+                "rating": {
+                  "type": "string",
+                  "example": "4.92 from 58 votes"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "A rich and creamy Argentine-style ice cream made by gently heating dulce de leche with milk, folding into whipped cream, and freezing until perfectly set."
+                },
+                "author": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "example": "Inés Vazquez Noya"
+                    },
+                    "url": {
+                      "type": "string",
+                      "example": "https://www.directoalpaladar.com/autor/ines-vazquez-noya"
+                    }
+                  }
+                },
+                "cookTime": {
+                  "type": "string",
+                  "example": "15 minutes"
+                },
+                "ingredients": {
+                  "type": "array",
+                  "example": ["400 g dulce de leche", "350 ml whole milk", "200 ml heavy cream"],
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "instructions": {
+                  "type": "array",
+                  "example": [
+                    "In a saucepan over low heat, combine the dulce de leche and milk. Stir until fully integrated and the mixture is smooth.",
+                    "Remove from heat and let cool to room temperature, then transfer to the refrigerator until completely chilled.",
+                    "Meanwhile, chill your mixing bowl and beaters in the freezer for about 15 minutes so the cream whips up better.",
+                    "Pour the heavy cream into the chilled bowl and whip with an electric mixer until soft peaks form.",
+                    "Gently fold the cooled dulce de leche mixture into the whipped cream until homogeneous, taking care not to deflate the cream.",
+                    "Transfer the blend into a freezer-safe container, cover, and freeze for at least 5-6 hours (or overnight) before serving."
+                  ],
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "equipment": {
+                  "type": "array",
+                  "example": [
+                    "Saucepan",
+                    "Mixing bowl",
+                    "Electric mixer",
+                    "Freezer-safe container"
+                  ],
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "nutrition": {
+                  "type": "object",
+                  "properties": {
+                    "protein": {
+                      "type": "string",
+                      "example": "5g"
+                    },
+                    "fiber": {
+                      "type": "string",
+                      "example": "0g"
+                    },
+                    "calories": {
+                      "type": "string",
+                      "example": "560kcal"
+                    },
+                    "fat": {
+                      "type": "string",
+                      "example": "32g"
+                    },
+                    "carbohydrates": {
+                      "type": "string",
+                      "example": "65g"
+                    },
+                    "sodium": {
+                      "type": "string",
+                      "example": "120mg"
+                    }
+                  }
+                }
+              },
+              "required": ["imgUrl", "name"]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/recipes/{id}": {
+      "get": {
+        "tags": ["Recipes"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Recipes"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Recipes"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/authors/": {
+      "get": {
+        "tags": ["Authors"],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Authors"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": ""
+                },
+                "companyName": {
+                  "type": "string",
+                  "example": ""
+                },
+                "description": {
+                  "type": "string",
+                  "example": ""
+                },
+                "photo": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": ["name"]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/authors/{id}": {
+      "delete": {
+        "tags": ["Authors"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/signup/": {
+      "post": {
+        "tags": ["Management System"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "example@example.com"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Password_123456"
+                }
+              },
+              "required": ["email", "name"]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/login/": {
+      "post": {
+        "tags": ["Management System"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "email@example.com"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Password_123456"
+                }
+              },
+              "required": ["email", "name"]
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}
