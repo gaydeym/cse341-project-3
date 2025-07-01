@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const recipesController = require('../controllers/recipes');
+const verifyToken = require('../middlewares/auth');
 
 router.get(
   '/',
@@ -67,6 +68,7 @@ router.post(
       }
     }
   */
+  verifyToken,
   recipesController.addRecipe
 );
 
@@ -75,6 +77,7 @@ router.put(
   /* 
     #swagger.tags = ['Recipes']
   */
+  verifyToken,
   recipesController.validateId,
   recipesController.updateRecipe
 );
@@ -84,6 +87,7 @@ router.delete(
   /* 
     #swagger.tags = ['Recipes']
   */
+  verifyToken,
   recipesController.validateId,
   recipesController.deleteRecipe
 );

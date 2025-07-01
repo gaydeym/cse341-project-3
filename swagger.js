@@ -5,10 +5,10 @@ const doc = {
     title: 'Recipes API'
     // description: 'Description'
   },
-  // host: 'localhost:3000',
-  // schemes: ['http']
-  host: 'cse341-project-3.onrender.com',
-  schemes: ['https']
+  host: 'localhost:3000',
+  schemes: ['http']
+  // host: 'cse341-project-3.onrender.com',
+  // schemes: ['https']
   // tags: [
   //   {
   //     name: 'API Endpoints'

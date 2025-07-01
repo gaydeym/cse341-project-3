@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const authorsController = require('../controllers/authors');
+const verifyToken = require('../middlewares/auth');
 
 router.get(
   '/',
