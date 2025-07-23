@@ -3,12 +3,16 @@ GET http://localhost:3000/api-docs
 
 // RECIPES
 GET http://localhost:3000/recipes
+
 ###
 GET http://localhost:3000/recipes/6860a0ef7bde643341385a28
+
 ###
 GET http://localhost:3000/recipes/6860a0ef7bde643341385a29
+
 ###
 GET http://localhost:3000/recipes/6860a0ef7bde643341385a2a
+
 ### Create Recipe (https://jsonlint.com/ || https://www.directoalpaladar.com/recetario/13-mejores-recetas-argentinas-exquisita-muestra-gastronomia-criolla)
 POST http://localhost:3000/recipes
 Content-Type: application/json
@@ -51,6 +55,7 @@ Content-Type: application/json
         "sodium": "120mg"
     }
 }
+
 ###
 PUT http://localhost:3000/recipes/6860a0ef7bde643341385a2a
 Content-Type: application/json
@@ -93,15 +98,31 @@ Content-Type: application/json
         "sodium": "120mg"
     }
 }
+
 ###
 DELETE http://localhost:3000/recipes/6860a0ef7bde643341385a2a
 
 // AUTHORS
 ###
 GET http://localhost:3000/authors
+
 ###
-PUT http://localhost:3000/authors
-content-type: application/json
+GET http://localhost:3000/authors/6860a1887bde643341385a2f
+
+### Create Author
+POST http://localhost:3000/authors
+Content-Type: application/json
+
+{
+  "name": "Miguel Gaydey",
+  "companyName": "BYU-Idaho",
+  "description": "Miguel is an excellent student at BYU-Idaho studying web development.",
+  "photo": "https://example.com/photo.jpg"
+}
+
+###
+PUT http://localhost:3000/authors/6860a1887bde643341385a2f
+Content-Type: application/json
 
 {
   "name": "Miguel Gaydey",
@@ -109,21 +130,51 @@ content-type: application/json
   "description": "Miguel is the best student that BYU has.",
   "photo": ""
 }
+
 ###
 DELETE http://localhost:3000/authors/6860a1887bde643341385a2f
 
-// MANAGEMENT
+// CATEGORIES
 ###
-PUT http://localhost:3000/signup
-content-type: application/json
+GET http://localhost:3000/categories
+
+###
+GET http://localhost:3000/categories/6860a1887bde643341385a30
+
+### Create Category
+POST http://localhost:3000/categories
+Content-Type: application/json
+
+{
+  "name": "Desserts",
+  "description": "Sweet treats and dessert recipes"
+}
+
+###
+PUT http://localhost:3000/categories/6860a1887bde643341385a30
+Content-Type: application/json
+
+{
+  "name": "Argentine Desserts",
+  "description": "Traditional sweet treats from Argentina"
+}
+
+###
+DELETE http://localhost:3000/categories/6860a1887bde643341385a30
+
+// MANAGEMENT
+### Signup
+POST http://localhost:3000/signup
+Content-Type: application/json
 
 {
   "email": "email@example2.com",
   "password": "Password_123456"
 }
-###
-PUT http://localhost:3000/login
-content-type: application/json
+
+### Login
+POST http://localhost:3000/login
+Content-Type: application/json
 
 {
   "email": "email@example.com",
@@ -134,19 +185,23 @@ content-type: application/json
 
 // RENDER
 ###
-GET cse341-project-3.onrender.com/api-docs
+GET https://cse341-project-3.onrender.com/api-docs
 
 // RECIPES
 ###
-GET cse341-project-3.onrender.com/recipes
+GET https://cse341-project-3.onrender.com/recipes
+
 ###
-GET cse341-project-3.onrender.com/recipes/682cc754f8ad904ce0a9a27b
+GET https://cse341-project-3.onrender.com/recipes/682cc754f8ad904ce0a9a27b
+
 ###
-GET cse341-project-3.onrender.com/recipes/682cc754f8ad904ce0a9a27c
+GET https://cse341-project-3.onrender.com/recipes/682cc754f8ad904ce0a9a27c
+
 ###
-GET cse341-project-3.onrender.com/recipes/6860a0ef7bde643341385a2a
+GET https://cse341-project-3.onrender.com/recipes/6860a0ef7bde643341385a2a
+
 ### Create Recipe (https://jsonlint.com/ || https://www.directoalpaladar.com/recetario/13-mejores-recetas-argentinas-exquisita-muestra-gastronomia-criolla)
-POST cse341-project-3.onrender.com/recipes
+POST https://cse341-project-3.onrender.com/recipes
 Content-Type: application/json
 
 {
@@ -187,8 +242,9 @@ Content-Type: application/json
         "sodium": "120mg"
     }
 }
+
 ###
-PUT cse341-project-3.onrender.com/recipes/6860a0ef7bde643341385a2a
+PUT https://cse341-project-3.onrender.com/recipes/6860a0ef7bde643341385a2a
 Content-Type: application/json
 
 {
@@ -229,15 +285,31 @@ Content-Type: application/json
         "sodium": "120mg"
     }
 }
+
 ###
-DELETE cse341-project-3.onrender.com/recipes/6860a0ef7bde643341385a2a
+DELETE https://cse341-project-3.onrender.com/recipes/6860a0ef7bde643341385a2a
 
 // AUTHORS
 ###
-GET cse341-project-3.onrender.com/authors
+GET https://cse341-project-3.onrender.com/authors
+
 ###
-PUT cse341-project-3.onrender.com/authors
-content-type: application/json
+GET https://cse341-project-3.onrender.com/authors/6860a1887bde643341385a2f
+
+### Create Author
+POST https://cse341-project-3.onrender.com/authors
+Content-Type: application/json
+
+{
+  "name": "Miguel Gaydey",
+  "companyName": "BYU-Idaho",
+  "description": "Miguel is an excellent student at BYU-Idaho studying web development.",
+  "photo": "https://example.com/photo.jpg"
+}
+
+###
+PUT https://cse341-project-3.onrender.com/authors/6860a1887bde643341385a2f
+Content-Type: application/json
 
 {
   "name": "Miguel Gaydey",
@@ -245,21 +317,51 @@ content-type: application/json
   "description": "Miguel is the best student that BYU has.",
   "photo": ""
 }
+
 ###
-DELETE cse341-project-3.onrender.com/authors/6860a1887bde643341385a2e
+DELETE https://cse341-project-3.onrender.com/authors/6860a1887bde643341385a2e
+
+// CATEGORIES
+###
+GET https://cse341-project-3.onrender.com/categories
+
+###
+GET https://cse341-project-3.onrender.com/categories/6860a1887bde643341385a30
+
+### Create Category
+POST https://cse341-project-3.onrender.com/categories
+Content-Type: application/json
+
+{
+  "name": "Desserts",
+  "description": "Sweet treats and dessert recipes"
+}
+
+###
+PUT https://cse341-project-3.onrender.com/categories/6860a1887bde643341385a30
+Content-Type: application/json
+
+{
+  "name": "Argentine Desserts",
+  "description": "Traditional sweet treats from Argentina"
+}
+
+###
+DELETE https://cse341-project-3.onrender.com/categories/6860a1887bde643341385a30
 
 // MANAGEMENT
-###
-PUT cse341-project-3.onrender.com/signup
-content-type: application/json
+### Signup
+POST https://cse341-project-3.onrender.com/signup
+Content-Type: application/json
 
 {
   "email": "email@example2.com",
   "password": "Password_123456"
 }
-###
-PUT cse341-project-3.onrender.com.com/login
-content-type: application/json
+
+### Login
+POST https://cse341-project-3.onrender.com/login
+Content-Type: application/json
 
 {
   "email": "email@example.com",

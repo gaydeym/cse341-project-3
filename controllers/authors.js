@@ -42,6 +42,56 @@ async function fetchAuthors(req, res) {
   }
 }
 
+// Fetch an author by ID
+async function fetchAuthorById(req, res) {
+  const { id } = req.params
+  try {
+    const author = await AuthorModel.findById(id)
+    if (!author) {
+      return res.status(404).json({ message: "Author not found." })
+    }
+    res.json(author)
+  } catch (error) {
+    console.error("Error fetching author:", error)
+    res.status(500).json({
+      error: error.message || "Error retrieving the author.",
+    })
+  }
+}
+
+// Update an author
+async function updateAuthor(req, res) {
+  try {
+    if (req.body.name === "") {
+      return res.status(400).json({ error: "Name cannot be empty" })
+    }
+
+    const { id } = req.params
+    const author = await AuthorModel.findById(id)
+    if (!author) {
+      return res.status(404).json({ message: "Author not found." })
+    }
+
+    const fields = ["name", "companyName", "description", "photo"]
+
+    fields.forEach((field) => {
+      if (req.body[field] !== undefined) {
+        author[field] = req.body[field]
+      }
+    })
+
+    const updated = await author.save()
+    res.status(200).json(updated)
+  } catch (error) {
+    if (error.name === "ValidationError") {
+      return res.status(400).json({ error: error.message })
+    }
+    res.status(500).json({
+      error: error.message || "Failed to update the author.",
+    })
+  }
+}
+
 // Delete an author
 async function deleteAuthor(req, res) {
   try {
@@ -64,5 +114,7 @@ module.exports = {
   validateId,
   addAuthor,
   fetchAuthors,
+  fetchAuthorById,
+  updateAuthor,
   deleteAuthor
 };

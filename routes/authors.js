@@ -11,6 +11,16 @@ router.get(
   authorsController.fetchAuthors
 );
 
+router.get(
+  "/:id",
+  /*
+    #swagger.tags = ['Authors']
+  */
+  verifyToken,
+  authorsController.validateId,
+  authorsController.fetchAuthorById,
+)
+
 router.post(
   '/',
   /* 
@@ -29,6 +39,16 @@ router.post(
   verifyToken,
   authorsController.addAuthor
 );
+
+router.put(
+  "/:id",
+  /*
+    #swagger.tags = ['Authors']
+  */
+  verifyToken,
+  authorsController.validateId,
+  authorsController.updateAuthor,
+)
 
 router.delete(
   '/:id',
