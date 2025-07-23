@@ -7,6 +7,7 @@ router.get(
   /* 
     #swagger.tags = ['Authors']
   */
+  verifyToken,
   authorsController.fetchAuthors
 );
 
@@ -25,6 +26,7 @@ router.post(
       }
     }
   */
+  verifyToken,
   authorsController.addAuthor
 );
 
@@ -33,6 +35,7 @@ router.delete(
   /* 
     #swagger.tags = ['Authors']
   */
+  verifyToken,
   authorsController.validateId,
   authorsController.deleteAuthor
 );
