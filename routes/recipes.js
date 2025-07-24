@@ -7,6 +7,7 @@ router.get(
   /* 
     #swagger.tags = ['Recipes']
   */
+  verifyToken,
   recipesController.fetchRecipes
 );
 
@@ -15,6 +16,7 @@ router.get(
   /* 
     #swagger.tags = ['Recipes']
   */
+  verifyToken,
   recipesController.validateId,
   recipesController.fetchRecipeById
 );
