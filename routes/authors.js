@@ -12,14 +12,14 @@ router.get(
 );
 
 router.get(
-  "/:id",
+  '/:id',
   /*
     #swagger.tags = ['Authors']
   */
   verifyToken,
   authorsController.validateId,
-  authorsController.fetchAuthorById,
-)
+  authorsController.fetchAuthorById
+);
 
 router.post(
   '/',
@@ -41,14 +41,14 @@ router.post(
 );
 
 router.put(
-  "/:id",
+  '/:id',
   /*
     #swagger.tags = ['Authors']
   */
   verifyToken,
   authorsController.validateId,
-  authorsController.updateAuthor,
-)
+  authorsController.updateAuthor
+);
 
 router.delete(
   '/:id',

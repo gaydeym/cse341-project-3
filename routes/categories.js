@@ -1,28 +1,28 @@
-const router = require("express").Router()
-const categoriesController = require("../controllers/categories")
-const verifyToken = require("../middlewares/auth")
+const router = require('express').Router();
+const categoriesController = require('../controllers/categories');
+const verifyToken = require('../middlewares/auth');
 
 router.get(
-  "/",
+  '/',
   /*
     #swagger.tags = ['Categories']
   */
   verifyToken,
-  categoriesController.fetchCategories,
-)
+  categoriesController.fetchCategories
+);
 
 router.get(
-  "/:id",
+  '/:id',
   /*
     #swagger.tags = ['Categories']
   */
   verifyToken,
   categoriesController.validateId,
-  categoriesController.fetchCategoryById,
-)
+  categoriesController.fetchCategoryById
+);
 
 router.post(
-  "/",
+  '/',
   /*
     #swagger.tags = ['Categories']
     #swagger.parameters['body'] = {
@@ -35,27 +35,27 @@ router.post(
     }
   */
   verifyToken,
-  categoriesController.addCategory,
-)
+  categoriesController.addCategory
+);
 
 router.put(
-  "/:id",
+  '/:id',
   /*
     #swagger.tags = ['Categories']
   */
   verifyToken,
   categoriesController.validateId,
-  categoriesController.updateCategory,
-)
+  categoriesController.updateCategory
+);
 
 router.delete(
-  "/:id",
+  '/:id',
   /*
     #swagger.tags = ['Categories']
   */
   verifyToken,
   categoriesController.validateId,
-  categoriesController.deleteCategory,
-)
+  categoriesController.deleteCategory
+);
 
-module.exports = router
+module.exports = router;

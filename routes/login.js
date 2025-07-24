@@ -18,7 +18,7 @@ router.post(
 );
 
 router.delete(
-  "/",
+  '/',
   /*
     #swagger.tags = ['Management System']
     #swagger.description = 'Delete user account using email and password'
@@ -32,6 +32,6 @@ router.delete(
     }
   */
   loginController.deleteUser
-)
+);
 
 module.exports = router;

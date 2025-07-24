@@ -1,61 +1,61 @@
-const request = require("supertest")
-const express = require("express")
+const request = require('supertest');
+const express = require('express');
 
 // Mock the controller
 const mockSignupController = {
   signupUser: jest.fn((req, res) => {
     if (req.body.email && req.body.password) {
       res.status(201).json({
-        _id: "123",
+        _id: '123',
         email: req.body.email,
-        token: "mock-token",
-      })
+        token: 'mock-token'
+      });
     } else {
-      res.status(400).json({ error: "All fields must be filled." })
+      res.status(400).json({ error: 'All fields must be filled.' });
     }
-  }),
-}
+  })
+};
 
-jest.mock("../../controllers/signup", () => mockSignupController)
+jest.mock('../../controllers/signup', () => mockSignupController);
 
-describe("Signup Routes", () => {
-  let app
+describe('Signup Routes', () => {
+  let app;
 
   beforeEach(() => {
-    app = express()
-    app.use(express.json())
-    app.use("/signup", require("../../routes/signup"))
+    app = express();
+    app.use(express.json());
+    app.use('/signup', require('../../routes/signup'));
 
-    jest.clearAllMocks()
-  })
+    jest.clearAllMocks();
+  });
 
-  describe("POST /signup", () => {
-    it("should handle signup request", async () => {
+  describe('POST /signup', () => {
+    it('should handle signup request', async () => {
       const signupData = {
-        email: "test@example.com",
-        password: "StrongPassword123!",
-      }
+        email: 'test@example.com',
+        password: 'StrongPassword123!'
+      };
 
-      const response = await request(app).post("/signup").send(signupData).expect(201)
+      const response = await request(app).post('/signup').send(signupData).expect(201);
 
-      expect(mockSignupController.signupUser).toHaveBeenCalled()
+      expect(mockSignupController.signupUser).toHaveBeenCalled();
       expect(response.body).toMatchObject({
-        _id: "123",
-        email: "test@example.com",
-        token: "mock-token",
-      })
-    })
+        _id: '123',
+        email: 'test@example.com',
+        token: 'mock-token'
+      });
+    });
 
-    it("should handle invalid signup data", async () => {
+    it('should handle invalid signup data', async () => {
       const signupData = {
-        email: "",
-        password: "",
-      }
+        email: '',
+        password: ''
+      };
 
-      const response = await request(app).post("/signup").send(signupData).expect(400)
+      const response = await request(app).post('/signup').send(signupData).expect(400);
 
-      expect(mockSignupController.signupUser).toHaveBeenCalled()
-      expect(response.body).toEqual({ error: "All fields must be filled." })
-    })
-  })
-})
+      expect(mockSignupController.signupUser).toHaveBeenCalled();
+      expect(response.body).toEqual({ error: 'All fields must be filled.' });
+    });
+  });
+});
