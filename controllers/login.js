@@ -49,6 +49,43 @@ async function loginUser(req, res) {
   }
 }
 
+// Delete user handler
+async function deleteUser(req, res) {
+  try {
+    const { email, password } = req.body;
+
+    // Validate input
+    if (!email || !password) {
+      return res.status(400).json({ error: "All fields must be filled." });
+    }
+
+    // Find user
+    const user = await UserModel.findOne({ email })
+    if (!user) {
+      return res.status(401).json({ error: "Incorrect email or password." });
+    }
+
+    // Compare password with hash
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(401).json({ error: "Incorrect email or password." });
+    }
+
+    // Delete the user
+    const result = await UserModel.deleteOne({ _id: user._id });
+
+    if (result.deletedCount === 0) {
+      return res.status(500).json({ error: "Failed to delete user." });
+    }
+
+    res.status(200).json({ message: "User deleted successfully." });
+  } catch (error) {
+    console.error("Error during user deletion:", error);
+    res.status(500).json({ error: error.message || "Internal server error during user deletion." });
+  }
+}
+
 module.exports = {
-  loginUser
+  loginUser,
+  deleteUser
 };
